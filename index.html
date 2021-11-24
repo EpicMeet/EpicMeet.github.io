@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" style="font-family: Inter;">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Let's Meet!</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+        <link href="parallax-template.css" type="text/css" rel="stylesheet" media="screen,projection" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Staatliches&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand&display=swap">
+        <meta property="og:url" content="" />
+        <meta property="og:title" content="Let's Meet" />
+        <meta property="og:description" content="A platform capable of ensuring that online events will never be boring again." />
+        <meta property="og:image" content="" />
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" sizes="144x144" href="#">
+        <link rel="icon" type="image/png" sizes="192x192" href="#">
+        <link rel="icon" type="image/png" sizes="96x96" href="#">
+        <link rel="icon" type="image/png" sizes="16x16" href="">
+        <script>
+            var TxtType = function(el, toRotate, period) {
+                this.toRotate = toRotate;
+                this.el = el;
+                this.loopNum = 0;
+                this.period = parseInt(period, 10) || 2000;
+                this.txt = '';
+                this.tick();
+                this.isDeleting = false;
+            };
+            
+            TxtType.prototype.tick = function() {
+                var i = this.loopNum % this.toRotate.length;
+                var fullTxt = this.toRotate[i];
+            
+                if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+                } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+                }
+            
+                this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+            
+                var that = this;
+                var delta = 200 - Math.random() * 100;
+            
+                if (this.isDeleting) { delta /= 2; }
+            
+                if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+                } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+                }
+            
+                setTimeout(function() {
+                that.tick();
+                }, delta);
+            };
+            
+            window.onload = function() {
+                var elements = document.getElementsByClassName('typewrite');
+                for (var i=0; i<elements.length; i++) {
+                    var toRotate = elements[i].getAttribute('data-type');
+                    var period = elements[i].getAttribute('data-period');
+                    if (toRotate) {
+                    new TxtType(elements[i], JSON.parse(toRotate), period);
+                    }
+                }
+                // INJECT CSS
+                var css = document.createElement("style");
+                css.type = "text/css";
+                css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+                document.body.appendChild(css);
+            };
+        </script>
+    </head>
+    <body>
+        <div id="index-banner" class="header" data-paroller-factor="-0.4" data-paroller-type="background"
+            data-paroller-direction="vertical">
+            <!-- bluez_bg  -->
+            <div class="section" style="overflow: hidden">
+                <div style="margin-bottom:100px" align="right">
+                    <div class="container header-container">
+                        <div class="center row">
+                            <h1 class="right-align" style="color: white; margin-top: 200px; margin-bottom: 10px">Let's Meet</h1>
+                            <div class="l8 m8 s12" style=" padding-left:0px !important">
+                                <p class="p1-key-body right-align" style="color: white; font-family: Quicksand; font-size: 30px">A platform capable of ensuring that online events will never be boring again.</p>
+                                <a href="" id="play-button" class="modal-trigger btn-large waves-effect waves-light" style="margin-top: 50px; margin-bottom: 200px">Use the app now!</a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="slanted_1 container-snap" id="section_characters" data-pg-name="section1"
+                data-paroller-factor="0.5" data-paroller-type="background" data-paroller-direction="vertical">
+                <div class="container  section">
+                    <!--   Icon Section   -->
+                    <h3 class="center-align white-text lemongrass" style="text-transform: uppercase; ">Let's Meet,
+                    </h3>
+                    <div class="l8 m8 s12 p-body-20 white-text center" style="padding-left:0px">
+                        <p>
+                            and build an application and plugin for everyone.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-snap bluez_bg" id="section_screenshots" data-pg-name="Screenshots"
+            style="padding-bottom:100px">
+            <div class="section" style="margin-top: 100px">
+                <h2 class="center-align " style="color:white; text-transform: uppercase;">This is Let's Meet.</h2>
+                <div class="row container">
+                    <div class="l6 m4 s12">
+                        <img src="assets/img/prototype.png" class="responsive-img  z-depth-2"
+                            alt="Insert Screenshots" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="section_whoarewe" data-pg-name="who are we" class="white_bg slanted_2">
+            <div class="container fullheight section">
+                <!--   Icon Section   -->
+                <div class="row" style="margin-top: 100px;">
+                    <h1 class="midnight-dark2">What is Let's Meet?</h1>
+                    <div class="col l8 m8 s12 p-body-20" style="padding-left:0px">
+                        <p class="midnight-dark2">Let's Meet is an application designed for customizability and engagement, by giving participants the opportunity to bond over a virtual event, through the concepts of Huddle and private chats. The application allows participants to not only listen in to live events as they take place, but also discuss with friends using mutual voice channels, which allows them to engage in the event much more easily by introducing a more human element into the mix.</p>
+                        <p class="midnight-dark2">I believe that, as someone who has sat through many of such events like the Singapore Science and Engineering Fair (SSEF) 2021, and who has participated in many similar projects, whether it be in voluntary at better.sg or on my own, I have the experience necessary to bring this application to fruition. If you want an easy to way to talk to your friends in any event, from Graduation Ceremonies to Football Marathons, vote for this application. Thank you.</p>
+                        <p class="midnight-dark2">
+                            I am looking for Frontend Developers and UI/UX Designers capable of bringing this application to it's ultimate form and who can work together to develop an application capable of achieving that same purpose as I have delivered above.
+                        </p>
+                        <p class="midnight-dark1">
+                            Made for the <a href="https://www.nushigh.edu.sg/">NUS High</a>-<a href="https://www.suss.edu.sg/">SUSS</a> E-Technopreneurship Programme.
+                        </p>
+                        <div class="center-align hide-on-med-and-up show-on-small">
+                            <a href="#"><img class="circle responsive-img z-depth-2" height="200px" src="assets/img/filled-logo.png" style="margin-bottom:36px" width="60%" /></a>
+                            <a href="https://www.nushigh.edu.sg/"><img class="circle responsive-img z-depth-2" height="200px" src="assets/img/nush.jpg" style="margin-bottom:36px" width="60%" /></a>
+                            <a href="https://www.suss.edu.sg/"><img class="circle responsive-img z-depth-2" height="200px" src="assets/img/SUSSlogo.png" style="margin-bottom:36px" width="60%" /></a>
+                        </div>
+                    </div>
+                    <div class="col hide-on-small-only l3 m3 offset-l1 offset-m1 right-align">
+                        <a href="#"><img class="circle  z-depth-2" height="200px" src="assets/img/filled-logo.png" style="margin-bottom:36px" /></a>
+                        <a href="https://www.nushigh.edu.sg/"><img class="circle z-depth-2" height="200px" src="assets/img/nush.jpg" style="margin-bottom:36px" /></a>
+                        <a href="https://www.suss.edu.sg/"><img class="circle  z-depth-2" height="200px" src="assets/img/SUSSlogo.png" style="margin-bottom:36px" /></a>
+                    </div>
+                </div>
+                <div class="row" style="padding-bottom: 100px;">
+                    <h3 class="midnight-dark2">The Pitch Video</h3>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/f130fZot7OY" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="section_theteam" data-pg-name="the team" class="white chicky-bg">
+            <div class="container fullheight section">
+                <!--   Icon Section   -->
+                <div class="row" style="margin-top: 200px;">
+                    <h1 class="center-align">The Team</h1>
+                    <div class="center-align col l6 m6 s6">
+                        <img width="200" class="circle responsive-img" style="max-height:200px" src="assets/img/prannaya.jpg">
+                        <h3><a href="https://thepyprogrammer.github.io" style="color:black">Prannaya Gupta</a></h3>
+                        <p class="bolded left-align midnight-dark2">Co-Founder, Backend Developer</p>
+                        <p class="instagram-text left-align">insert discussion here</p>
+                    </div>
+                    <div class="center-align col l6 m6 s6">
+                        <img width="200" class="circle responsive-img" height="200" src="" alt="Insert Photo">
+                        <h3><a href="" style="color:black">Kirthivardhan Rajasekar</a></h3>
+                        <p class="bolded left-align midnight-dark2">Co-Founder, Frontend Developer</p>
+                        <p class="instagram-text left-align">insert discussion here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <footer class="page-footer" style="background: var(--midnight-dark2);">
+            <div class="container">
+                <p class="white-text" align="center">
+                    Add to the conversation after we launch. <br> <a href="#">Instagram</a> |
+                    <a href="#">Telegram</a> | <a href="#">Facebook</a> | <a href="#">Reddit</a>
+                </p>
+            </div>
+            <div class="footer-copyright">
+                <div class="center-align container">
+                    Made for the NUS High-SUSS E-Technopreneurship Programme.
+                    <br>
+                    For any queries, please email us at
+                    <a href="mailto:"> link to email</a>
+                    <br>
+                    <small><a href="privacypolicy.html">[ Privacy Policy ]</a> | <a href="help.html">[ Help ]</a></small>
+                </div>
+            </div>
+        </footer>
+        <!-- Modal Trigger -->
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal bottom-sheet">
+            <div class="typeform-widget"
+                data-url="https://form.typeform.com/to/UnNtHibn?typeform-medium=embed-snippet&typeform-welcome=0"
+                data-hide-headers="true" data-hide-footer="true" style="width: 100%; height: 350px;"></div>
+            <script> (function () { var qs, js, q, s, d = document, gi = d.getElementById, ce = d.createElement, gt = d.getElementsByTagName, id = "typef_orm", b = "https://embed.typeform.com/"; if (!gi.call(d, id)) { js = ce.call(d, "script"); js.id = id; js.src = b + "embed.js"; q = gt.call(d, "script")[0]; q.parentNode.insertBefore(js, q) } })()</script>
+            <!-- <form name="submit-to-google-sheet">
+                <div class="modal-content" style="padding-bottom:0px; padding-top:10px"> 
+                    <h5 class="center-align">CONNECT WITH US!</h5> 
+                    <div class="row" style="margin-bottom:0px"> 
+                        <div class="col input-field m6 s12"> 
+                            <input type="text" name="fullname" id="fullname">
+                            <label for="name">Full Name*</label>                             
+                        </div>                         
+                        <div class="col input-field m6 s12"> 
+                            <input id="email" name="email" type="text"> 
+                            <label for="email">Email Address*</label>                             
+                        </div>                         
+                    </div>                     
+                    <div class="row"> 
+                        <div class="col input-field s12"> 
+                            <input name="org" id="org" type="text"> 
+                            <label for="organisation">Organisation / School (optional)</label>                             
+                        </div>
+                        <div class="col input-field s12"> 
+                            <textarea name="comments" id="comments" class="materialize-textarea"></textarea> 
+                            <label for="comments">Comments (optional)</label>                             
+                        </div>                         
+                    </div>                     
+                </div>
+                <div class="modal-footer"> 
+                    <button class="form_submit btn waves-effect waves-light blue" type="submit" name="submit" onClick="$('.modal').modal('close');">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+                </form> -->
+        </div>
+        <div id="modal2" class="modal" style="height:80vh">
+            <div class="modal-content">
+                <h4>Volunteer with us</h4>
+                <p>If you would like to join us to support the illustrations, design, game development, growth / impact /
+                    outreach, or in any other way, please fill in the form and explain in the comments how you would like to
+                    help
+                </p>
+            </div>
+            <div class="modal-footer">
+                <div class="typeform-widget"
+                    data-url="https://form.typeform.com/to/UnNtHibn?typeform-medium=embed-snippet&typeform-welcome=0"
+                    data-hide-headers="true" data-hide-footer="true" style="width: 100%; height: 350px;"></div>
+                <script> (function () { var qs, js, q, s, d = document, gi = d.getElementById, ce = d.createElement, gt = d.getElementsByTagName, id = "typef_orm", b = "https://embed.typeform.com/"; if (!gi.call(d, id)) { js = ce.call(d, "script"); js.id = id; js.src = b + "embed.js"; q = gt.call(d, "script")[0]; q.parentNode.insertBefore(js, q) } })()</script>
+            </div>
+        </div>
+        <!--  Scripts-->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="materialize/js/materialize.js"></script>
+        <script src="assets/js/jquery.paroller.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('.carousel').carousel();
+                $('.modal').modal();
+            
+                $('.carousel.carousel-slider').carousel({
+                    dist: 0,
+                    fullWidth: true,
+                    indicators: true,
+                });
+            
+                $("[data-paroller-factor]").paroller();
+            
+            })
+            
+            
+        </script>
+    </body>
+</html>
